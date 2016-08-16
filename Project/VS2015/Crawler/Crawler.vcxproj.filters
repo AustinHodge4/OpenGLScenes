@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{83068cd2-a324-4304-b85b-11607cf8827f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\lighting">
+      <UniqueIdentifier>{09a1c4a1-87cc-43f3-9f1a-d654f0d755ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\toon">
+      <UniqueIdentifier>{85a21b53-c4d4-4bba-8032-fa92e005dfca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\hatch">
+      <UniqueIdentifier>{3ef050ba-bdbc-4e03-9107-180406b9960f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\outline">
+      <UniqueIdentifier>{b0948dd8-2f3a-4501-b19c-6377a37a8f1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\transparent">
+      <UniqueIdentifier>{6a304944-f8fd-4ea7-9d88-8a2c61b687aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\basic">
+      <UniqueIdentifier>{121b55bd-3084-4813-876d-454dda17f6c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\default">
+      <UniqueIdentifier>{57d8bf1d-f374-4ae4-abf0-870a8375d972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\screen">
+      <UniqueIdentifier>{33ae3d19-6d3a-4d3a-adc6-87d83e847c9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\skybox">
+      <UniqueIdentifier>{50ea7162-fc85-43b0-811d-4e872bb6704a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\reflection">
+      <UniqueIdentifier>{84e3b454-b62f-4819-a68a-6a9f0be71f0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\refraction">
+      <UniqueIdentifier>{3dce7da3-ee95-41d8-afc3-10a83782845f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\normal">
+      <UniqueIdentifier>{f72f69ca-a992-4855-af9a-8ecc1c2f642f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\ShaderManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\shader\Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\source\ShaderManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\shader\Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\source\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\media\textures\awesomeface.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\media\textures\container.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\media\textures\container2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\media\textures\container2_specular.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\media\textures\grass.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\media\textures\groundgrass.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\media\shaders\toon\ToonFragmentShader.frag">
+      <Filter>Shaders\toon</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\toon\ToonVertexShader.vs">
+      <Filter>Shaders\toon</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\hatch\HatchFragmentShader.frag">
+      <Filter>Shaders\hatch</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\hatch\HatchVertexShader.vs">
+      <Filter>Shaders\hatch</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\lighting\LightFragmentShader.frag">
+      <Filter>Shaders\lighting</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\lighting\LightVertexShader.vs">
+      <Filter>Shaders\lighting</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\transparent\TransparentFragmentShader.frag">
+      <Filter>Shaders\transparent</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\transparent\TransparentVertexShader.vs">
+      <Filter>Shaders\transparent</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\outline\OutlineFragmentShader.frag">
+      <Filter>Shaders\outline</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\outline\OutlineVertexShader.vs">
+      <Filter>Shaders\outline</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\lighting\LampFragmentShader.frag">
+      <Filter>Shaders\lighting</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\default\DefaultFragmentShader.frag">
+      <Filter>Shaders\default</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\default\DefaultVertexShader.vs">
+      <Filter>Shaders\default</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\basic\BasicFragmentShader.frag">
+      <Filter>Shaders\basic</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\basic\BasicVertexShader.vs">
+      <Filter>Shaders\basic</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\screen\ScreenFragmentShader.frag">
+      <Filter>Shaders\screen</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\screen\ScreenVertexShader.vs">
+      <Filter>Shaders\screen</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\skybox\SkyboxFragmentShader.frag">
+      <Filter>Shaders\skybox</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\skybox\SkyboxVertexShader.vs">
+      <Filter>Shaders\skybox</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\reflection\ReflectionFragmentShader.frag">
+      <Filter>Shaders\reflection</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\reflection\ReflectionVertexShader.vs">
+      <Filter>Shaders\reflection</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\refraction\RefractionFragmentShader.frag">
+      <Filter>Shaders\refraction</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\refraction\RefractionVertexShader.vs">
+      <Filter>Shaders\refraction</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\normal\NormalVertexShader.vs">
+      <Filter>Shaders\normal</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\normal\NormalFragmentShader.frag">
+      <Filter>Shaders\normal</Filter>
+    </None>
+    <None Include="..\..\..\media\shaders\normal\NormalGeometryShader.geo">
+      <Filter>Shaders\normal</Filter>
+    </None>
+  </ItemGroup>
+</Project>
