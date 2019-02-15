@@ -27,7 +27,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 GLuint loadTexture(GLchar* path, bool alpha);
-GLuint loadCubemap(std::vector<const GLchar*> faces);
+GLuint loadCubemap(std::vector<GLchar*> faces);
 GLuint generateAttachmentTexture(GLboolean depth, GLboolean stencil);
 
 void Do_Movement();
@@ -55,7 +55,7 @@ GLuint faceTexture;
 GLuint containerTexture;
 GLuint containerSpecularTexture;
 GLuint grassTexture;
-std::vector<const GLchar*> skyboxFaces;
+//std::vector<GLchar*> skyboxFaces;
 GLuint skyboxTexture;
 
 GLuint VBOs[5], VAOs[5];
@@ -106,7 +106,9 @@ int main()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
-	//glfwWindowHint(GLFW_SAMPLES, 4);
+	if (enableAntiAliasing) {
+		glfwWindowHint(GLFW_SAMPLES, 4);
+	}
 
 	// Create a GLFWwindow object that we can use for GLFW's functions
 	GLFWwindow* window = glfwCreateWindow(screenWidth, screenHeight, "Shader Tests", nullptr, nullptr);
@@ -142,18 +144,24 @@ int main()
 	glEnable(GL_DEPTH_TEST);
 	// Pass depth test is fragment z is less or equal to current depth value
 	glDepthFunc(GL_LEQUAL);
+
 	// Outlines
 	/*glEnable(GL_STENCIL_TEST);
 	glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
 	glStencilOp(GL_KEEP, GL_REPLACE, GL_REPLACE);*/
+
 	// Transparency
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 	// Culling
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
+
 	// Anti-Aliasing
-	glEnable(GL_MULTISAMPLE);
+	if (enableAntiAliasing) {
+		glEnable(GL_MULTISAMPLE);
+	}
 
 	ShaderManager* shaderManager = new ShaderManager();
 	shaderManager->InitializeShaders();
@@ -468,20 +476,20 @@ int main()
 	glBindVertexArray(0);
 
 	// Load and create a texture 
-	groundTexture = loadTexture("../../media/textures/groundgrass.jpg", false);
-	faceTexture = loadTexture("../../media/textures/awesomeface.png", true);
-	containerTexture = loadTexture("../../media/textures/container2.png", false);
-	containerSpecularTexture = loadTexture("../../media/textures/container2_specular.png", false);
-	grassTexture = loadTexture("../../media/textures/grass.png", true);
+	groundTexture = loadTexture("media/textures/groundgrass.jpg", false);
+	faceTexture = loadTexture("media/textures/awesomeface.png", true);
+	containerTexture = loadTexture("media/textures/container2.png", false);
+	containerSpecularTexture = loadTexture("media/textures/container2_specular.png", false);
+	grassTexture = loadTexture("media/textures/grass.png", true);
 
 	// In certain order 
-	skyboxFaces.push_back("../../media/textures/skybox/right.jpg");
-	skyboxFaces.push_back("../../media/textures/skybox/left.jpg");
-	skyboxFaces.push_back("../../media/textures/skybox/top.jpg");
-	skyboxFaces.push_back("../../media/textures/skybox/bottom.jpg");
-	skyboxFaces.push_back("../../media/textures/skybox/back.jpg");
-	skyboxFaces.push_back("../../media/textures/skybox/front.jpg");
-	skyboxTexture = loadCubemap(skyboxFaces);
+	//skyboxFaces.push_back("media/textures/skybox/right.jpg");
+	//skyboxFaces.push_back("media/textures/skybox/left.jpg");
+	//skyboxFaces.push_back("media/textures/skybox/top.jpg");
+	//skyboxFaces.push_back("media/textures/skybox/bottom.jpg");
+	//skyboxFaces.push_back("media/textures/skybox/back.jpg");
+	//skyboxFaces.push_back("media/textures/skybox/front.jpg");
+	//skyboxTexture = loadCubemap(skyboxFaces);
 #pragma endregion
 	// Anti-Aliasing FrameBuffer
 	GLuint FBOMS;
@@ -504,6 +512,7 @@ int main()
 	if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 		std::cout << "ERROR::FRAMEBUFFER::NOT COMPLETE!\n";
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
 	// Down Sampled FrameBuffer
 	GLuint FBO;
 	glGenFramebuffers(1, &FBO);
@@ -594,10 +603,10 @@ int main()
 			glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
-			DrawSkybox(skyboxShader);
-			DrawEnvironmentCubemaps(reflectShader, refractShader);
+			/*DrawSkybox(skyboxShader);
+			DrawEnvironmentCubemaps(reflectShader, refractShader);*/
 			//DoLighting(lightShader, lampShader);
-			//DoToonShading(toonShader);
+			DoToonShading(toonShader);
 			//DrawCube(basicShader);
 			//DoLighting(lightShader, lampShader);
 			//DoLighting(normalShader, normalShader);
@@ -1056,7 +1065,7 @@ GLuint loadTexture(GLchar* path, bool alpha)
 
 	return textureID;
 }
-GLuint loadCubemap(std::vector<const GLchar*> faces) {
+GLuint loadCubemap(std::vector<GLchar*> faces) {
 	GLuint textureID;
 	glGenTextures(1, &textureID);
 	glActiveTexture(GL_TEXTURE0);

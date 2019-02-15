@@ -1,4 +1,3 @@
-// shadertype=glsl
 #version 330 core
 
 in vec2 textureCoords;

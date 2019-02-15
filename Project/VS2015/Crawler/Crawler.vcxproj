@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -68,32 +68,32 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0916425B-D731-4BB8-AA4D-2C41DEE89B41}</ProjectGuid>
     <RootNamespace>Crawler</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -116,12 +116,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\austin\Documents\Visual Studio 2015\Projects\OpenGLCrawlerGitHub\source\soil\src;C:\Users\austin\Documents\Visual Studio 2015\Projects\OpenGLCrawlerGitHub\source\ini;C:\Users\austin\Documents\Visual Studio 2015\Projects\OpenGLCrawlerGitHub\source\glm;C:\Users\austin\Documents\Visual Studio 2015\Projects\OpenGLCrawlerGitHub\source\gl\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\austin\Documents\Visual Studio 2015\Projects\OpenGLCrawlerGitHub\source\soil\lib\Win32;C:\Users\austin\Documents\Visual Studio 2015\Projects\OpenGLCrawlerGitHub\source\gl\libs\Win32;$(LibraryPath)</LibraryPath>
-    <ExecutablePath>C:\Users\austin\Documents\Visual Studio 2015\Projects\OpenGLCrawlerGitHub;$(ExecutablePath)</ExecutablePath>
-    <SourcePath>C:\Users\austin\Documents\Visual Studio 2015\Projects\OpenGLCrawlerGitHub\source;$(SourcePath)</SourcePath>
+    <IncludePath>C:\Users\hodge\Documents\Visual Studio 2017\Projects\OpenGLScenes\source\soil\src;C:\Users\hodge\Documents\Visual Studio 2017\Projects\OpenGLScenes\source\glm;C:\Users\hodge\Documents\Visual Studio 2017\Projects\OpenGLScenes\source\ini;C:\Users\hodge\Documents\Visual Studio 2017\Projects\OpenGLScenes\source\gl\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\hodge\Documents\Visual Studio 2017\Projects\OpenGLScenes\source\soil\lib\Win32;C:\Users\hodge\Documents\Visual Studio 2017\Projects\OpenGLScenes\source\gl\libs\Win32;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>C:\Users\hodge\Documents\Visual Studio 2017\Projects\OpenGLScenes;$(ExecutablePath)</ExecutablePath>
+    <SourcePath>C:\Users\hodge\Documents\Visual Studio 2017\Projects\OpenGLScenes\source;$(SourcePath)</SourcePath>
     <OutDir>..\..\..\Debug\Win32\</OutDir>
-    <IntDir>..\..\..\Debug\Win32\</IntDir>
+    <IntDir>..\..\..\Debug\Win32</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Users\hodge\Documents\Visual Studio 2017\Projects\OpenGLScenes\Libraries\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\hodge\Documents\Visual Studio 2017\Projects\OpenGLScenes\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -139,9 +143,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Opengl32.lib;glew32.lib;freeglut.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
